@@ -1,0 +1,33 @@
+Nombre de banque :  nbmb
+                                                  Banque n°1    Banque n°2    Banque n°3     
+Nom des banques                                 : Banque1     | Banque2     | Banque3     |  ect...
+Nom des tauxs                                   : Valeurtaux1 | Valeurtaux2 | Valeurtaux3 |  ect...
+Nom des durée                                   : Duree1      | Duree2      | Duree3      |  ect...
+Nom des résultat (en fonction des taux et durée : Resultat1-1 | Resultat1-2 | Resultat1-3 |  ect...
+                                                  Resultat2-1 | Resultat2-2 | Resultat2-3 |  ect...
+                                                  Resultat3-1 | Resultat3-2 | Resultat3-3 |  ect...
+                                                      ect...        ect...        ect...
+
+
+ ______________________________________________
+|          |                 |                 |
+|  Banque  |   [Banque1]     |   [Banque2]     |
+|__________|_________________|_________________|
+|          |                 |                 |
+|  Taux 1  | [Valeurtaux1]   | [Valeurtaux1]   |
+|__________|_________________|_________________|
+|          |                 |                 |
+|  Duree1  |    [Duree1]     |    [Duree1]     |
+|__________|_________________|_________________|
+|          |                 |                 |
+| Résultat |  [Resultat1-1]  |  [Resultat1-2]  |
+|__________|_________________|_________________|
+|          |                 |                 |
+|  Taux 2  | [Valeurtaux2]   | [Valeurtaux2]   |
+|__________|_________________|_________________|
+|          |                 |                 |
+|  Duree2  |    [Duree2]     |    [Duree2]     |
+|__________|_________________|_________________|
+|          |                 |                 |
+| Résultat |  [Resultat2-1]  |  [Resultat2-2]  |
+|__________|_________________|_________________|
