@@ -55,8 +55,8 @@ string cleanNumber(double value) {
 
 int main() {
 
-    vector<string> banques = {"Banque1", "Banque2"};
-    vector<double> taux = {1.5, 2.0};
+    vector<string> banques = {"BNP", "LCL"};
+    vector<double> taux = {3, 4};
     vector<int> durees = {10, 15, 20};
 
     vector<vector<vector<double>>> resultats = {
