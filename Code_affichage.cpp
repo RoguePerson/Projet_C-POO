@@ -16,7 +16,6 @@ string repeat(char c, int n) {
 
 string centerText(string text, int width) {
     int length = text.size();
-
     if (length >= width) {
         return text;
     }
@@ -24,98 +23,90 @@ string centerText(string text, int width) {
     int spacesTotal = width - length;
     int spacesLeft = spacesTotal / 2;
     int spacesRight = spacesTotal - spacesLeft;
-
     string result = "";
-
     for (int i = 0; i < spacesLeft; i++) {
         result += " ";
     }
 
     result += text;
-
     for (int i = 0; i < spacesRight; i++) {
         result += " ";
     }
-
     return result;
 }
-
 string cleanNumber(double value) {
     value = round(value * 100) / 100;
-
     string s = to_string(value);
-
     while (s.size() > 0 && s.back() == '0') {
         s.pop_back();
     }
-
+    
     if (s.size() > 0 && s.back() == '.') {
         s.pop_back();
     }
-
     return s;
 }
 
 int main() {
-
     vector<string> banques = {"BNP", "LCL"};
     vector<double> taux = {3, 4};
     vector<int> durees = {10, 15, 20};
-
     double montant = 10000;
 
     int colWidth = 15;
     int nbBanques = banques.size();
 
-    cout << " " << repeat('_', (nbBanques + 1) * (colWidth + 1)) << endl;
+    string tableauFinal = "";
 
-    cout << "|" << centerText("Banque", colWidth);
+    tableauFinal += " " + repeat('_', (nbBanques + 1) * (colWidth + 1)) + "\n";
+
+    tableauFinal += "|" + centerText("Banque", colWidth);
 
     for (int i = 0; i < nbBanques; i++) {
-        cout << "|" << centerText(banques[i], colWidth);
+        tableauFinal += "|" + centerText(banques[i], colWidth);
     }
-    cout << "|" << endl;
+    tableauFinal += "|\n";
 
-    cout << "|" << repeat('_', colWidth);
+    tableauFinal += "|" + repeat('_', colWidth);
     for (int i = 0; i < nbBanques; i++) {
-        cout << "|" << repeat('_', colWidth);
+        tableauFinal += "|" + repeat('_', colWidth);
     }
-    cout << "|" << endl;
+    tableauFinal += "|\n";
 
     for (int t = 0; t < taux.size(); t++) {
 
         for (int d = 0; d < durees.size(); d++) {
 
             string texteTaux = "Taux " + to_string(t + 1);
-            cout << "|" << centerText(texteTaux, colWidth);
+            tableauFinal += "|" + centerText(texteTaux, colWidth);
 
             for (int b = 0; b < nbBanques; b++) {
                 string tauxNettoye = cleanNumber(taux[t]);
-                cout << "|" << centerText(tauxNettoye, colWidth);
+                tableauFinal += "|" + centerText(tauxNettoye, colWidth);
             }
-            cout << "|" << endl;
+            tableauFinal += "|\n";
 
-            cout << "|" << repeat('_', colWidth);
+            tableauFinal += "|" + repeat('_', colWidth);
             for (int i = 0; i < nbBanques; i++) {
-                cout << "|" << repeat('_', colWidth);
+                tableauFinal += "|" + repeat('_', colWidth);
             }
-            cout << "|" << endl;
+            tableauFinal += "|\n";
 
             string texteDuree = "Duree " + to_string(d + 1);
-            cout << "|" << centerText(texteDuree, colWidth);
+            tableauFinal += "|" + centerText(texteDuree, colWidth);
 
             for (int b = 0; b < nbBanques; b++) {
-                cout << "|" << centerText(to_string(durees[d]), colWidth);
+                tableauFinal += "|" + centerText(to_string(durees[d]), colWidth);
             }
-            cout << "|" << endl;
+            tableauFinal += "|\n";
 
-            cout << "|" << repeat('_', colWidth);
+            tableauFinal += "|" + repeat('_', colWidth);
             for (int i = 0; i < nbBanques; i++) {
-                cout << "|" << repeat('_', colWidth);
+                tableauFinal += "|" + repeat('_', colWidth);
             }
-            cout << "|" << endl;
+            tableauFinal += "|\n";
 
-            cout << "|" << centerText("Résultat", colWidth);
+            tableauFinal += "|" + centerText("Résultat", colWidth);
 
             for (int b = 0; b < nbBanques; b++) {
 
@@ -125,17 +116,17 @@ int main() {
                 double resultat = montant * (1 + tauxPourcent * dureeAnnees);
 
                 string resNettoye = cleanNumber(resultat);
-                cout << "|" << centerText(resNettoye, colWidth);
+                tableauFinal += "|" + centerText(resNettoye, colWidth);
             }
-            cout << "|" << endl;
+            tableauFinal += "|\n";
 
-            cout << "|" << repeat('_', colWidth);
+            tableauFinal += "|" + repeat('_', colWidth);
             for (int i = 0; i < nbBanques; i++) {
-                cout << "|" << repeat('_', colWidth);
+                tableauFinal += "|" + repeat('_', colWidth);
             }
-            cout << "|" << endl;
+            tableauFinal += "|\n";
         }
     }
-
+    cout << tableauFinal;
     return 0;
 }
