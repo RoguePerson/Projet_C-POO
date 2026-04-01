@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <iomanip>
+#include <cmath>
 
 using namespace std;
 
@@ -40,6 +41,8 @@ string centerText(string text, int width) {
 }
 
 string cleanNumber(double value) {
+    value = round(value * 100) / 100;
+
     string s = to_string(value);
 
     while (s.size() > 0 && s.back() == '0') {
@@ -59,10 +62,7 @@ int main() {
     vector<double> taux = {3, 4};
     vector<int> durees = {10, 15, 20};
 
-    vector<vector<vector<double>>> resultats = {
-        { {100, 120, 140}, {110, 130, 150} },
-        { {200, 230, 260}, {210, 240, 270} }
-    };
+    double montant = 10000;
 
     int colWidth = 15;
     int nbBanques = banques.size();
@@ -118,7 +118,13 @@ int main() {
             cout << "|" << centerText("Résultat", colWidth);
 
             for (int b = 0; b < nbBanques; b++) {
-                string resNettoye = cleanNumber(resultats[t][b][d]);
+
+                double tauxPourcent = taux[t] / 100.0;
+                double dureeAnnees = durees[d] / 12.0;
+
+                double resultat = montant * (1 + tauxPourcent * dureeAnnees);
+
+                string resNettoye = cleanNumber(resultat);
                 cout << "|" << centerText(resNettoye, colWidth);
             }
             cout << "|" << endl;
@@ -130,5 +136,6 @@ int main() {
             cout << "|" << endl;
         }
     }
+
     return 0;
 }
