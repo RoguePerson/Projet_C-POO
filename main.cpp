@@ -86,12 +86,12 @@ public:
 };
 
 int main() {
-    Emprunt e;
+    Emprunt exemple;
 
-    e.saisieUtilisateur();
-    e.saisieBanque();
+    exemple.saisieUtilisateur();
+    exemple.saisieBanque();
 
-    Resultats r = e.genererListes();
+    Resultats r = exemple.genererListes();
 
     string tableau = genererTableau(r.banques, r.taux, r.durees, r.mensualites);
 
