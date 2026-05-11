@@ -1,81 +1,91 @@
-Simulateur d'Emprunt Immobilier en C++
-Description du projet
+🏦 Simulateur d'Emprunt Immobilier en C++
+📖 Description du projet
 
-Ce projet est une application en C++ permettant de simuler un emprunt immobilier et de comparer plusieurs offres bancaires.
+Ce projet en C++ permet de simuler un emprunt immobilier et de comparer plusieurs offres bancaires en fonction de différents taux d'intérêt et durées de remboursement.
 
 L'utilisateur peut :
 
-Saisir le montant du capital emprunté.
-Ajouter plusieurs banques (par exemple : BNP, LCL, Crédit Agricole).
-Saisir plusieurs taux d'intérêt annuels.
-Saisir plusieurs durées de remboursement (en années).
-Calculer les mensualités correspondantes pour toutes les combinaisons de taux et de durées.
-Générer des listes de résultats exploitables dans le programme.
+💰 Saisir le montant du capital à emprunter.
+🏦 Ajouter plusieurs banques (ex. BNP, LCL, Crédit Agricole).
+📈 Saisir plusieurs taux d'intérêt annuels.
+📅 Saisir plusieurs durées de remboursement (en années).
+🧮 Calculer automatiquement les mensualités.
+📋 Générer des listes de résultats exploitables dans le programme.
 
-L'objectif de ce projet est de manipuler les concepts fondamentaux du C++ :
+Ce projet a pour objectif de mettre en pratique plusieurs notions importantes du C++ :
 
-Programmation orientée objet (classe Emprunt)
-Utilisation de vector
-Calculs mathématiques avec pow()
-Structuration des données avec struct
-Gestion des entrées utilisateur
-Fonctionnement
+🧱 Programmation orientée objet avec la classe Emprunt
+📦 Utilisation des vector
+➗ Calculs mathématiques avec pow()
+🗂️ Organisation des données avec struct
+⌨️ Gestion des entrées utilisateur
+⚙️ Fonctionnement du calcul
 
-Le programme utilise la formule standard de calcul des mensualités d'un prêt amortissable :
+Le programme utilise la formule classique des mensualités d'un prêt amortissable :
 
 M = C × i × (1 + i)^n / ((1 + i)^n - 1)
+📝 Avec :
+M = mensualité
+C = capital emprunté
+i = taux mensuel
+n = nombre total de mensualités
 
-Avec :
+🧪 Exemple d'utilisation
 
-M : mensualité
-C : capital emprunté
-i : taux mensuel
-n : nombre total de mensualités
-
-Compilation
-g++ -std=c++17 -o emprunt main.cpp
-
-Exécution
-Linux / macOS
-./emprunt
-Windows
-emprunt.exe
-
-Exemple d'utilisation
 Capital : 200000
 Nombre de banques : 2
-Banque 1 : BNP
-Banque 2 : LCL
-
+Banque 1 : bnp
+Banque 2 : lcl
 Nombre de taux : 2
-Taux 1 : 3.2
-Taux 2 : 3.5
+Taux 1 : 3.5
+Taux 2 : 5
+Nombre de durees : 2
+Duree 1 : 5
+Duree 2 : 10
 
-Nombre de durées : 2
-Durée 1 : 20
-Durée 2 : 25
-Résultat du programme
+📊 Résultat du programme
 
+ ________________________________________________
+|    Banque     |      bnp      |      lcl      |
+|_______________|_______________|_______________|
+|   Taux 3.5    |      3.5      |      3.5      |
+|_______________|_______________|_______________|
+|    Duree 5    |       5       |       5       |
+|_______________|_______________|_______________|
+|  Mensualité  |    3638.32    |    3638.32    |
+|_______________|_______________|_______________|
+|   Taux 3.5    |      3.5      |      3.5      |
+|_______________|_______________|_______________|
+|   Duree 10    |      10       |      10       |
+|_______________|_______________|_______________|
+|  Mensualité  |    1977.7     |    1977.7     |
+|_______________|_______________|_______________|
+|    Taux 5     |       5       |       5       |
+|_______________|_______________|_______________|
+|    Duree 5    |       5       |       5       |
+|_______________|_______________|_______________|
+|  Mensualité  |    3774.2     |    3774.2     |
+|_______________|_______________|_______________|
+|    Taux 5     |       5       |       5       |
+|_______________|_______________|_______________|
+|   Duree 10    |      10       |      10       |
+|_______________|_______________|_______________|
+|  Mensualité  |    2121.29    |    2121.29    |
+|_______________|_______________|_______________|
 
-[Insérer ici la sortie du programme]
-Méthodes principales
-saisieUtilisateur() : saisie du capital emprunté.
-saisieBanque() : saisie des banques, des taux et des durées.
-calculerMensualite() : calcule la mensualité.
-genererListes() : retourne les listes contenant les données et les résultats.
-Améliorations possibles
-Associer un taux spécifique à chaque banque.
-Trier les offres par mensualité croissante.
-Déterminer automatiquement la meilleure offre.
-Exporter les résultats au format CSV ou Excel.
-Ajouter une interface graphique.
-Technologies utilisées
-C++17
-Bibliothèque standard C++ (vector, string, cmath)
-Auteur
+🧠 Méthodes principales
+👤 saisieUtilisateur()
 
-Votre Nom
+Permet de saisir le capital emprunté.
 
-Licence
+🏦 saisieBanque()
 
-Projet réalisé dans un cadre pédagogique.
+Permet de saisir les banques, les taux et les durées.
+
+🧮 calculerMensualite(float tauxAnnuel, int duree)
+
+Calcule la mensualité pour un taux et une durée donnés.
+
+📋 genererListes()
+
+Retourne toutes les données sous forme de listes (vector).
