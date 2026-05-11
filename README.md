@@ -44,6 +44,7 @@ Duree 1 : 5
 Duree 2 : 10
 
 📊 Résultat du programme
+```text
 
  ________________________________________________
 |    Banque     |      bnp      |      lcl      |
