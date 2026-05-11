@@ -3,6 +3,8 @@
 #include <string>
 #include <cmath>
 #include "tableau.h"
+#include <fstream>
+#include <iomanip>
 
 using namespace std;
 
