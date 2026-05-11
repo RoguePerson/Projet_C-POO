@@ -87,6 +87,39 @@ public:
     }
 };
 
+void ajouterResultatCSV(string groupe,
+                        double capital,
+                        string banque,
+                        double taux,
+                        int duree,
+                        double resultat) {
+
+    ifstream testFile("banques.csv");
+    bool fichierExiste = testFile.good();
+    testFile.close();
+
+    ofstream file("banques.csv", ios::app);
+
+    if (!file) {
+        cerr << "Erreur : impossible d'ouvrir le fichier." << endl;
+        return;
+    }
+
+    if (!fichierExiste) {
+        file << "GROUPE;CAPITAL;BANQUE;TAUX;DUREE;RESULTAT\n";
+    }
+
+    file << groupe << ";"
+         << fixed << setprecision(2)
+         << capital << ";"
+         << banque << ";"
+         << taux << ";"
+         << duree << ";"
+         << resultat << "\n";
+
+    file.close();
+}
+
 int main() {
     Emprunt exemple;
 
@@ -96,8 +129,29 @@ int main() {
     Resultats r = exemple.genererListes();
 
     string tableau = genererTableau(r.banques, r.taux, r.durees, r.mensualites);
-
     cout << tableau;
+
+    int index = 0;
+
+    for (int i = 0; i < r.taux.size(); i++) {
+        for (int j = 0; j < r.durees.size(); j++) {
+            for (int b = 0; b < r.banques.size(); b++) {
+
+                ajouterResultatCSV(
+                    "Louis_Benjamin",      
+                    50000,                 
+                    r.banques[b],
+                    r.taux[i],
+                    r.durees[j],
+                    r.mensualites[index]
+                );
+            }
+
+            index++;
+        }
+    }
+
+    cout << "\n\nResultats exportes dans le fichier banques.csv" << endl;
 
     return 0;
 }
