@@ -26,10 +26,13 @@ string centerText(string text, int width) {
 string cleanNumber(double value) {
     value = round(value * 100) / 100;
     string s = to_string(value);
-
-    while (!s.empty() && s.back() == '0') s.pop_back();
-    if (!s.empty() && s.back() == '.') s.pop_back();
-
+    while (s.size() > 0 && s.back() == '0') {
+        s.pop_back();
+    }
+    
+    if (s.size() > 0 && s.back() == '.') {
+        s.pop_back();
+    }
     return s;
 }
 
